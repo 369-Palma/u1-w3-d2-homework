@@ -13,12 +13,31 @@ console.log(stringaMaiuscola("Ciao", "Mondo"));
 /* ESERCIZIO 2
   Scrivi una funzione che torni un array di 10 elementi; ognuno di essi deve essere un valore random compreso tra 0 e 100 (incluso).
 */
-console.log("------Esercizio 2------");
+/* console.log("------Esercizio 2------");
+function ArrayRandom(a) {
+ const nuovoArray = a.map(random) => random[Math.floor()]
+  
+   return nuovoArray
+     
+  };
+
+console.log(ArrayRandom([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]));
+ */
 //const nuovoArrey = arrayDiNumeri.map((e) => {});
 /* ESERCIZIO 3
   Scrivi una funzione per ricavare solamente i valori PARI da un array composto da soli valori numerici (suggerimento: il metodo filter può aiutare)
 */
 console.log("------Esercizio 3------");
+
+function Pari(arrayNum) {
+  const NumeriPari = arrayNum.filter((elemento) => {
+    return elemento % 2 === 0;
+    console.log(NumeriPari);
+  });
+}
+
+console.log(Pari([6, 3, 8]));
+
 /* ESERCIZIO 4
   Scrivi una funzione per sommare i numeri contenuti in un array
 */
@@ -27,6 +46,16 @@ console.log("------Esercizio 4------");
   Scrivi una funzione per sommare i numeri contenuti in un array (usare REDUCE)
 */
 console.log("------Esercizio 5------");
+
+function somma(a) {
+  const somma = a.reduce((accumulatore, elemento) => {
+    return accumulatore + elemento;
+  }, 0);
+  return somma;
+}
+
+console.log(somma([2, 5, 4, 3]));
+
 /* ESERCIZIO 6
   Scrivi una funzione che, dato un array di soli numeri e un numero n come parametri, ritorni un secondo array con tutti i valori del precedente incrementati di n
 */
