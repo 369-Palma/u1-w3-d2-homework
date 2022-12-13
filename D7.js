@@ -4,8 +4,7 @@
 */
 console.log("------Esercizio1------");
 function stringaMaiuscola(a, b) {
-  let risultato = a.slice(0, 2) + b.slice(-3);
-  return risultato.toUpperCase();
+  return a.slice(0, 2).toUpperCase() + b.slice(-3).toUpperCase();
 }
 
 console.log(stringaMaiuscola("Ciao", "Mondo"));
@@ -13,16 +12,16 @@ console.log(stringaMaiuscola("Ciao", "Mondo"));
 /* ESERCIZIO 2
   Scrivi una funzione che torni un array di 10 elementi; ognuno di essi deve essere un valore random compreso tra 0 e 100 (incluso).
 */
-/* console.log("------Esercizio 2------");
-function ArrayRandom(a) {
- const nuovoArray = a.map(random) => random[Math.floor()]
-  
-   return nuovoArray
-     
-  };
+console.log("------Esercizio 2------");
+function ArrayRandom(num) {
+  const nuovoArray = num.map(
+    (random) => random[Math.round(Math.random() * 100)]
+  );
+  return nuovoArray;
+}
 
 console.log(ArrayRandom([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]));
- */
+
 //const nuovoArrey = arrayDiNumeri.map((e) => {});
 /* ESERCIZIO 3
   Scrivi una funzione per ricavare solamente i valori PARI da un array composto da soli valori numerici (suggerimento: il metodo filter può aiutare)
@@ -30,10 +29,7 @@ console.log(ArrayRandom([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]));
 console.log("------Esercizio 3------");
 
 function Pari(arrayNum) {
-  const NumeriPari = arrayNum.filter((elemento) => {
-    return elemento % 2 === 0;
-    console.log(NumeriPari);
-  });
+  return arrayNum.filter((elemento) => elemento % 2 === 0);
 }
 
 console.log(Pari([6, 3, 8]));
@@ -60,6 +56,12 @@ console.log(somma([2, 5, 4, 3]));
   Scrivi una funzione che, dato un array di soli numeri e un numero n come parametri, ritorni un secondo array con tutti i valori del precedente incrementati di n
 */
 console.log("------Esercizio 6------");
+function Es6(numeri, n) {
+  const risultato = es6.map();
+}
+
+console.log(Es6([1, 2, 3], 2));
+
 /* ESERCIZIO 8
   Scrivi una funzione che, dato un array di stringhe, ritorni un nuovo array contenente le lunghezze delle rispettive stringhe dell'array di partenza
   es.: ["EPICODE", "is", "great"] => [7, 2, 5]
