@@ -5,8 +5,7 @@
 console.log("------Esercizio1------");
 function stringaMaiuscola(a, b) {
   let risultato = a.slice(0, 2) + b.slice(-3);
-  return risultato;
-  console.log(risultato.toUpperCase());
+  return risultato.toUpperCase();
 }
 
 console.log(stringaMaiuscola("Ciao", "Mondo"));
