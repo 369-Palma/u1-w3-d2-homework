@@ -13,14 +13,17 @@ console.log(stringaMaiuscola("Ciao", "Mondo"));
   Scrivi una funzione che torni un array di 10 elementi; ognuno di essi deve essere un valore random compreso tra 0 e 100 (incluso).
 */
 console.log("------Esercizio 2------");
-function ArrayRandom(num) {
+/* function ArrayRandom(num) {
   const nuovoArray = num.map(
     (random) => random[Math.round(Math.random() * 100)]
   );
   return nuovoArray;
-}
-
-console.log(ArrayRandom([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]));
+} */
+const arrayNumeri = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const ArrayRandom = arrayNumeri.map((e) => {
+  return Math.round(Math.random() * 100);
+});
+console.log(ArrayRandom);
 
 //const nuovoArrey = arrayDiNumeri.map((e) => {});
 /* ESERCIZIO 3
@@ -38,6 +41,14 @@ console.log(Pari([6, 3, 8]));
   Scrivi una funzione per sommare i numeri contenuti in un array
 */
 console.log("------Esercizio 4------");
+
+const arrayOfNumners = [1, 2, 3, 4, 5];
+console.log(
+  arrayOfNumners.reduce((acc, el) => {
+    return acc + el;
+  }, 0)
+);
+
 /* ESERCIZIO 5
   Scrivi una funzione per sommare i numeri contenuti in un array (usare REDUCE)
 */
@@ -56,21 +67,42 @@ console.log(somma([2, 5, 4, 3]));
   Scrivi una funzione che, dato un array di soli numeri e un numero n come parametri, ritorni un secondo array con tutti i valori del precedente incrementati di n
 */
 console.log("------Esercizio 6------");
-function Es6(numeri, n) {
-  const risultato = es6.map();
-}
 
-console.log(Es6([1, 2, 3], 2));
+const arrayNumbers = [1, 3, 5];
+n = 5;
+
+console.log(
+  arrayNumbers.map((e) => {
+    return e + n;
+  })
+);
 
 /* ESERCIZIO 8
   Scrivi una funzione che, dato un array di stringhe, ritorni un nuovo array contenente le lunghezze delle rispettive stringhe dell'array di partenza
   es.: ["EPICODE", "is", "great"] => [7, 2, 5]
 */
 console.log("------Esercizio 8------");
+
+const arrayStringhe = ["EPICODE", "is", "great"];
+console.log(
+  arrayStringhe.map((e) => {
+    return e.length;
+  })
+);
+
 /* ESERCIZIO 9
   Scrivi una funzione per creare un array contenente tutti i valori DISPARI da 1 a 99.
 */
 console.log("------Esercizio 9------");
+
+const arrayDispari = [];
+let i = 1;
+while (i <= 99) {
+  arrayDispari.push(i);
+  i += 2;
+}
+console.log(arrayDispari);
+
 /* Questo array di film verrà usato negli esercizi a seguire. Non modificarlo e scorri oltre per riprendere gli esercizi :) */
 const movies = [
   {
@@ -191,18 +223,65 @@ const movies = [
   Scrivi una funzione per trovare il film più vecchio nell'array fornito.
 */
 console.log("------Esercizio 10------");
+let piuVecchio = parseInt(movies[0].Year);
+
+const filmPiuVecchio = movies.forEach((element) => {
+  if (parseInt(element.Year) < parseInt(piuVecchio)) {
+    piuVecchio = parseInt(element.Year);
+  }
+});
+
+console.log(filmPiuVecchio);
 /* ESERCIZIO 11
   Scrivi una funzione per ottenere il numero di film contenuti nell'array fornito.
 */
 console.log("------Esercizio 11------");
+
+const numFilm = () => {
+  let numeroFilm = 0;
+  movies.forEach((element) => {
+    if (element.Title === "") {
+      alert("non c'è alcun titolo");
+      numeroFilm = numeroFilm + 0;
+    } else {
+      numeroFilm++;
+    }
+    return numeroFilm;
+  });
+};
+
+console.log(numFilm());
+
 /* ESERCIZIO 12
   Scrivi una funzione per creare un array con solamente i titoli dei film contenuti nell'array fornito.
 */
 console.log("------Esercizio 12------");
+
+/* const soloTitoli = () => {
+  let nuovoArray = [];
+  for (let i = 0; i < movies.length; i++) {
+    nuovoArray.push(movies[i].Title);
+  }
+  return nuovoArray;
+};
+console.log(soloTitoli()); */
+
+const newArray = movies.map((e) => {
+  return e.Title;
+});
+
+console.log(newArray);
+
 /* ESERCIZIO 13
   Scrivi una funzione per ottenere dall'array fornito solamente i film usciti nel millennio corrente.
 */
 console.log("------Esercizio 13------");
+
+const newMillenial = movies.filter((e) => {
+  return parseInt(e.Year) >= 2000;
+});
+
+console.log(newMillenial);
 /* ESERCIZIO 14
   Scrivi una funzione per ottenere dall'array fornito uno specifico film (la funzione riceve un imdbID come parametro).
 */
