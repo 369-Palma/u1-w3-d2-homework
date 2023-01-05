@@ -229,28 +229,24 @@ const filmPiuVecchio = movies.forEach((element) => {
   if (parseInt(element.Year) < parseInt(piuVecchio)) {
     piuVecchio = parseInt(element.Year);
   }
+  return piuVecchio;
 });
 
-console.log(filmPiuVecchio);
+console.log(piuVecchio);
 /* ESERCIZIO 11
   Scrivi una funzione per ottenere il numero di film contenuti nell'array fornito.
 */
 console.log("------Esercizio 11------");
-
-const numFilm = () => {
-  let numeroFilm = 0;
+let numeroFilm = 0;
+const filmcounter = () => {
   movies.forEach((element) => {
-    if (element.Title === "") {
-      alert("non c'è alcun titolo");
-      numeroFilm = numeroFilm + 0;
-    } else {
+    if (element.Title !== "") {
       numeroFilm++;
     }
-    return numeroFilm;
   });
+  return numeroFilm;
 };
-
-console.log(numFilm());
+console.log(filmcounter());
 
 /* ESERCIZIO 12
   Scrivi una funzione per creare un array con solamente i titoli dei film contenuti nell'array fornito.
@@ -282,10 +278,59 @@ const newMillenial = movies.filter((e) => {
 });
 
 console.log(newMillenial);
+
 /* ESERCIZIO 14
   Scrivi una funzione per ottenere dall'array fornito uno specifico film (la funzione riceve un imdbID come parametro).
 */
 console.log("------Esercizio 14------");
+
+/* let imdbID = "tt2395427";
+const found = movies.find((element) => element.imdbID === imdbID);
+
+console.log(found); */
+
+// OPPURE:
+
+function mioFilm(mioImbdID) {
+  let trova = movies.find((e) => e.imdbID === mioImbdID);
+  return trova;
+}
+console.log(mioFilm("tt2395427"));
+
 /* ESERCIZIO 15
   Scrivi una funzione per calcolare la somma di tutti gli anni in cui sono stati prodotti i film contenuti nell'array fornito.
 */
+console.log("------Esercizio 15------");
+
+/* const sommaAnni = parseInt(movies.Year).reduce((acc, el) => {
+  return acc + el;
+}, 0);
+
+console.log(sommaAnni); */
+
+/* const FilmAnno = movies.map((e) => {
+  return parseInt(e.Year);
+});
+
+function sommaAnni() {
+  let somma = FilmAnno.reduce((accumulatore, elemento) => {
+    return accumulatore + elemento;
+  }, 0);
+  return somma;
+}
+
+console.log(sommaAnni(parseInt(movies.Year)));
+ */
+
+function sommaAnni() {
+  let somma = movies
+    .map((e) => {
+      return parseInt(e.Year);
+    })
+    .reduce((accumulatore, elemento) => {
+      return accumulatore + elemento;
+    }, 0);
+  return somma;
+}
+
+console.log(sommaAnni(parseInt(movies.Year)));
